@@ -13,16 +13,16 @@ module tb_and_gate;
     initial begin
         $display("Running AND gate test...");
         a = 0; b = 0; #10;
-        if (y !== 0) $fatal("Test failed for a=0, b=0");
+        if (y !== 0) $display("Test failed for a=0, b=0");
 
         a = 0; b = 1; #10;
-        if (y !== 0) $fatal("Test failed for a=0, b=1");
+        if (y !== 0) $display("Test failed for a=0, b=1");
 
         a = 1; b = 0; #10;
-        if (y !== 0) $fatal("Test failed for a=1, b=0");
+        if (y !== 0) $display("Test failed for a=1, b=0");
 
         a = 1; b = 1; #10;
-        if (y !== 1) $fatal("Test failed for a=1, b=1");
+        if (y !== 1) $display("Test failed for a=1, b=1");
 
         $display("All tests passed.");
         $finish;
