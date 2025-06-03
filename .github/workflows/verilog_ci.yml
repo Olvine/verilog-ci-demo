@@ -1,0 +1,22 @@
+name: Verilog CI with Icarus
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  run-verilog-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Install Icarus Verilog
+        run: sudo apt update && sudo apt install -y iverilog
+
+      - name: Compile Verilog
+        run: iverilog -o and_gate_tb.out tb/tb_and_gate.v src/and_gate.v
+
+      - name: Run Simulation
+        run: vvp and_gate_tb.out
+
