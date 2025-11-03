@@ -17,13 +17,14 @@ module tb_and_gate;
 
         a = 0; b = 1; #10;
         if (y !== 0) $display("Test failed for a=0, b=1");
+        	else $fatal(1, "Simulation failed: unexpected value detected!");
 
         a = 1; b = 0; #10;
         if (y !== 0) $display("Test failed for a=1, b=0");
-
+		else $fatal(1, "Simulation failed: unexpected value detected!");
         a = 1; b = 1; #10;
         if (y !== 1) $display("Test failed for a=1, b=1");
-
+		else $fatal(1, "Simulation failed: unexpected value detected!");
         $display("All tests passed.");
         $finish;
     end
